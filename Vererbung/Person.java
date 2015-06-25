@@ -4,12 +4,13 @@ import ssj.Out;
 
 class Person {
 	
+	String  Farbstring;
 	int Generation;
 	boolean Geschlecht;				//true = männlich ; false = weiblich
 	int Größe;						//in cm
 	byte Augenfarbe;
 	byte[] AugenGene;				//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
-	float Haarfarbe;				//0=blond ; 1=braun ; 2=grau ; 3=schwarz ; 4=rot
+	int Haarfarbe;					//Farben im RGB Spektrum(rrggbb als Hexzahl)
 	
 	static String[] AugenfarbeKodierung = {"grau",/*1*/"","blau-grün","grau-blau","braun",/*5*/"grau-blau","grau-braun","grün-braun","blau","grün-braun",/*10*/"grau-braun","blau-braun","grün","blau-braun","",/*15*/"grau-grün"};
 	static int AnzahlPersonen;
@@ -21,7 +22,7 @@ class Person {
 		this.AugenGene = AugenGenRandom();
 		this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);				//Übergabe der Gene zur Berechnung des Strings
 		
-		this.Haarfarbe = 0.7f;
+		this.Haarfarbe = 16445630;	//16445630 entspricht Blond ... so ziemlich
 		this.Generation = 1;
 		AnzahlPersonen++;
 	}	//Default Constructor ends
@@ -35,20 +36,71 @@ class Person {
 			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
-			this.Haarfarbe = 0.7f;
+			this.Haarfarbe = 16445630;
 			this.Generation = 1;
 		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
 			this.Geschlecht = false;
 			this.Größe = 165;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
-			this.Haarfarbe = 0.7f;
+			this.Haarfarbe = 16445630;
 			this.Generation = 1;
 		} else {
 			
 		}
 		
-	}	//Constructor ends
+	}	
+	
+	Person (String geschlecht, int Größe, int Haarfarbe) {
+		
+		AnzahlPersonen++;
+		
+		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
+			this.Geschlecht = true;
+			this.Größe = Größe;
+			this.AugenGene = AugenGenRandom();
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
+			this.Haarfarbe = Haarfarbe;
+			this.Generation = 1;
+		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
+			this.Geschlecht = false;
+			this.Größe = Größe;
+			this.AugenGene = AugenGenRandom();
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
+			this.Haarfarbe = Haarfarbe;
+			this.Generation = 1;
+		} else {
+			
+		}
+		
+	}	
+	
+Person (String geschlecht, int Größe, String Farbstring) {
+		
+		AnzahlPersonen++;
+		
+		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
+			this.Geschlecht = true;
+			this.Größe = 180;
+			this.AugenGene = AugenGenRandom();
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
+			this.Haarfarbe = 16445630;
+			this.Generation = 1;
+		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
+			this.Geschlecht = false;
+			this.Größe = 165;
+			this.AugenGene = AugenGenRandom();
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
+			this.Haarfarbe = 16445630;
+			this.Generation = 1;
+		} else {
+			
+		}
+		
+	}
+	
+	
+	//Constructor ends
 	
 	
 	static String AugenFarbeRechner (byte[] Gene) {
