@@ -9,8 +9,8 @@ public class Vererbung {
 
 		Person a = new Person();			//frau
 		Person b = new Person("mann");		//mann
-		String test0r="ff";
-		Person c = new Person("Mann",140,test0r);
+		String Haarfarbe="ff";
+		Person c = new Person("Mann",140,Haarfarbe);
 		Out.println(a);
 		Out.println(b);
 		Out.println(c+ "Test");
