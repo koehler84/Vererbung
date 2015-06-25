@@ -9,7 +9,7 @@ public class Vererbung {
 
 		Person a = new Person();			//frau
 		Person b = new Person("mann");		//mann
-		String Haarfarbe="ff";
+		String Haarfarbe="ff";				//TODO warum muss ich das erst in ne veriable schreiben, damit er erkennt, dass das nen string ist
 		Person c = new Person("Mann",140,Haarfarbe);
 		Out.println(a);
 		Out.println(b);
