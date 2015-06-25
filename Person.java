@@ -8,7 +8,7 @@ class Person {
 	boolean Geschlecht;				//true = männlich ; false = weiblich
 	int Größe;						//in cm
 	String Augenfarbe;
-	int[] AugenGene;					//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
+	byte[] AugenGene;					//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
 	float Haarfarbe;				//0=blond ; 1=braun ; 2=grau ; 3=schwarz ; 4=rot
 	
 	static int AnzahlPersonen;
@@ -50,7 +50,7 @@ class Person {
 	}	//Constructor ends
 	
 	
-	static String AugenFarbeRechner (int[] Gene) {
+	static String AugenFarbeRechner (byte[] Gene) {
 		
 		int AugenfarbeZahl = Gene[0]*2 + Gene[1]*3;
 		String Farbe = new String();
@@ -71,17 +71,17 @@ class Person {
 		return Farbe;
 	}
 	
-	static int[] AugenGenRandom () {
+	static byte[] AugenGenRandom () {
 		
-		int[] AugenGen = new int[2];
-		int random = (int)(Math.random()*10);
+		byte[] AugenGen = new byte[2];
+		byte random = (byte)(Math.random()*10);
 		
 		for (int i = 0; i < AugenGen.length; i++) {
 			
 			if (random >= 0 && random <= 3) {
 				AugenGen[i] = random;
 			}
-			random = (int)(Math.random()*10);
+			random = (byte)(Math.random()*10);
 		}
 		
 		return AugenGen;
@@ -125,7 +125,7 @@ class Person {
 						
 			//Augenfarbe ; Gen[0] von A und Gen[1] von B werden vererbt 
 			random = Math.random();				//neue Zufallszahl um Unabhängigkeit zu anderen Merkmalen zu erreichen
-			erg.AugenGene = new int[2];
+			erg.AugenGene = new byte[2];
 			if (random >= 0.35) {
 				erg.AugenGene[0] = a.AugenGene[0];
 				erg.AugenGene[1] = b.AugenGene[1];
