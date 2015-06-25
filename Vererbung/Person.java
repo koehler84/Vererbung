@@ -8,7 +8,7 @@ class Person {
 	boolean Geschlecht;				//true = männlich ; false = weiblich
 	int Größe;						//in cm
 	byte Augenfarbe;
-	byte[] AugenGene;					//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
+	byte[] AugenGene;				//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
 	float Haarfarbe;				//0=blond ; 1=braun ; 2=grau ; 3=schwarz ; 4=rot
 	
 	static String[] AugenfarbeKodierung = {"grau",/*1*/"","blau-grün","grau-blau","braun",/*5*/"grau-blau","grau-braun","grün-braun","blau","grün-braun",/*10*/"grau-braun","blau-braun","grün","blau-braun","",/*15*/"grau-grün"};
@@ -96,7 +96,7 @@ class Person {
 		
 		Person erg = new Person();
 		
-		if (a.Geschlecht == false) {
+		if (a.Geschlecht == false) {			//a soll immer der Mann, b immer die Frau sein
 			Person h;
 			h = a;
 			a = b;
