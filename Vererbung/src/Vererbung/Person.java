@@ -29,14 +29,14 @@ class Person {
 		
 		AnzahlPersonen++;
 		
-		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
+		if (geschlecht.equals("mann".toLowerCase())) {
 			this.Geschlecht = true;
 			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Haarfarbe = 16445630;
 			this.Generation = 1;
-		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
+		} else if (geschlecht.equals("frau".toLowerCase())) {
 			this.Geschlecht = false;
 			this.Größe = 165;
 			this.AugenGene = AugenGenRandom();
@@ -53,14 +53,14 @@ class Person {
 		
 		AnzahlPersonen++;
 		
-		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
+		if (geschlecht.equals("mann".toLowerCase())) {
 			this.Geschlecht = true;
 			this.Größe = Größe;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Haarfarbe = Haarfarbe;
 			this.Generation = 1;
-		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
+		} else if (geschlecht.equals("frau".toLowerCase())) {
 			this.Geschlecht = false;
 			this.Größe = Größe;
 			this.AugenGene = AugenGenRandom();
@@ -76,21 +76,20 @@ class Person {
 Person (String geschlecht, int Größe, String Farbstring) {
 		
 		AnzahlPersonen++;
-		this.Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);
+		this.Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);	//haarfarbe als rrggbb hexzahl umwandeln in int
+																			//TODO Unterscheidung hexzahl und vorgegebene Standardwerte (blond schwarz, rot, grau, etc)  
 		
 		
-		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
+		if (geschlecht.equals("mann".toLowerCase())) {
 			this.Geschlecht = true;
-			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Generation = 1;
-		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
+		} else if (geschlecht.equals("frau".toLowerCase())) {
 			this.Geschlecht = false;
-			this.Größe = 165;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
-			this.Haarfarbe = 16445630;
+
 			this.Generation = 1;
 		} else {
 			
