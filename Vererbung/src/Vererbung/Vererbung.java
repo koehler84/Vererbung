@@ -9,14 +9,14 @@ public class Vererbung {
 
 		Person a = new Person();			//frau
 		Person b = new Person("mann");		//mann
+		String test0r="ff";
+		Person c = new Person("Mann",140,test0r);
 		Out.println(a);
 		Out.println(b);
-		Out.println();
+		Out.println(c+ "Test");
 		
 		Person Gen2_1 = Person.Fortpflanzen(a, b);
 		Person Gen2_2 = Person.Fortpflanzen(a, b);
-		
-		Out.println();
 		
 		Person a2 = a;
 		Person b2 = b;
@@ -25,7 +25,7 @@ public class Vererbung {
 			
 			Out.println(Gen2_1);
 			Out.println(Gen2_2);
-			
+			Out.println();
 			while (Gen2_1.Geschlecht == Gen2_2.Geschlecht) {
 				
 				if (Math.random() >= 0.5) {
@@ -37,7 +37,6 @@ public class Vererbung {
 				}
 				
 			}
-			
 			a2=Gen2_1;
 			b2=Gen2_2;
 			Gen2_1 = Person.Fortpflanzen(a2, b2);

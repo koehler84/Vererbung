@@ -76,6 +76,8 @@ class Person {
 Person (String geschlecht, int Größe, String Farbstring) {
 		
 		AnzahlPersonen++;
+		Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);
+		
 		
 		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
 			this.Geschlecht = true;
@@ -209,9 +211,9 @@ Person (String geschlecht, int Größe, String Farbstring) {
 		if (AugenfarbeKodierung[this.Augenfarbe].length() <= 5) TAB = "\u0009\u0009";
 		
 		if (this.Geschlecht) {		//mann
-			return "Mann, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation;
+			return "Mann, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + this.Haarfarbe + " HAARFARBE, Generation: " + this.Generation;
 		} else {		//frau
-			return "Frau, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation;
+			return "Frau, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + this.Haarfarbe + " HAARFARBE, Generation: " + this.Generation;
 		}
 	}
 	/*
