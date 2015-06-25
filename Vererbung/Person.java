@@ -1,5 +1,5 @@
 package Vererbung;
-
+//test von Stephan
 import ssj.Out;
 
 class Person {
