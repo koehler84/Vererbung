@@ -9,8 +9,8 @@ public class Vererbung {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Person a = new Person();
-		Person b = new Person("mann");
+		Person a = new Person();			//frau
+		Person b = new Person("mann");		//mann
 		
 		a.printPerson();
 		b.printPerson();
@@ -18,6 +18,9 @@ public class Vererbung {
 		
 		Person Gen2_1 = Person.Fortpflanzen(a, b);
 		Person Gen2_2 = Person.Fortpflanzen(a, b);
+		
+		Out.println();
+		
 		Person a2 = new Person();
 		Person b2 = new Person();
 		
@@ -31,18 +34,32 @@ public class Vererbung {
 			Gen2_2 = Person.Fortpflanzen(a2, b2);
 			
 			while (Gen2_1 == null) {
-				Gen2_1 = Person.Fortpflanzen(a, b);
+				
+				if (a2.Geschlecht == true) {		//wenn beide Eltern Männer
+					Gen2_1 = Person.Fortpflanzen(a, b2);
+				} else {
+					Gen2_1 = Person.Fortpflanzen(a2, b);
+				}
+				
 				Gen2_1.printPerson();
 			}
 			
 			while (Gen2_2 == null) {
-				Gen2_2 = Person.Fortpflanzen(a, b);
+
+				if (a2.Geschlecht == true) {		//wenn beide Eltern Männer
+					Gen2_2 = Person.Fortpflanzen(a, b2);
+				} else {
+					Gen2_2 = Person.Fortpflanzen(a2, b);
+				}
+				
 				Gen2_2.printPerson();
 			}
 			Out.println();
 			
 
 		}	//for-Schleife Ende
+		
+		Out.println(Person.AnzahlPersonen);
 		
 	}
 
