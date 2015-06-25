@@ -76,7 +76,7 @@ class Person {
 Person (String geschlecht, int Größe, String Farbstring) {
 		
 		AnzahlPersonen++;
-		Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);
+		this.Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);
 		
 		
 		if (geschlecht.equals("mann") || geschlecht.equals("Mann")) {
@@ -84,7 +84,6 @@ Person (String geschlecht, int Größe, String Farbstring) {
 			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
-			this.Haarfarbe = 16445630;
 			this.Generation = 1;
 		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
 			this.Geschlecht = false;
