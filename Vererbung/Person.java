@@ -7,10 +7,11 @@ class Person {
 	int Generation;
 	boolean Geschlecht;				//true = männlich ; false = weiblich
 	int Größe;						//in cm
-	String Augenfarbe;
-	byte[] AugenGene;					//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
+	byte Augenfarbe;
+	byte[] AugenGene;				//Gene der Augenfarbe ; 0=grau ; 1=blau ; 2=braun ; 3=grün
 	float Haarfarbe;				//0=blond ; 1=braun ; 2=grau ; 3=schwarz ; 4=rot
 	
+	static String[] AugenfarbeKodierung = {"grau",/*1*/"","blau-grün","grau-blau","braun",/*5*/"grau-blau","grau-braun","grün-braun","blau","grün-braun",/*10*/"grau-braun","blau-braun","grün","blau-braun","",/*15*/"grau-grün"};
 	static int AnzahlPersonen;
 	
 	Person () {
@@ -18,7 +19,7 @@ class Person {
 		this.Größe = 165;
 		
 		this.AugenGene = AugenGenRandom();
-		this.Augenfarbe = AugenFarbeRechner(AugenGene);				//Übergabe der Gene zur Berechnung des Strings
+		this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);				//Übergabe der Gene zur Berechnung des Strings
 		
 		this.Haarfarbe = 0.7f;
 		this.Generation = 1;
@@ -33,14 +34,14 @@ class Person {
 			this.Geschlecht = true;
 			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
-			this.Augenfarbe = AugenFarbeRechner(AugenGene);
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Haarfarbe = 0.7f;
 			this.Generation = 1;
 		} else if (geschlecht.equals("frau") || geschlecht.equals("Frau")) {
 			this.Geschlecht = false;
 			this.Größe = 165;
 			this.AugenGene = AugenGenRandom();
-			this.Augenfarbe = AugenFarbeRechner(AugenGene);
+			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Haarfarbe = 0.7f;
 			this.Generation = 1;
 		} else {
@@ -71,6 +72,10 @@ class Person {
 		return Farbe;
 	}
 	
+	static byte AugenFarbeRechnerByte (byte[] Gene) {
+		return (byte)(Gene[0]*2 + Gene[1]*3);
+	}
+	
 	static byte[] AugenGenRandom () {
 		
 		byte[] AugenGen = new byte[2];
@@ -91,7 +96,7 @@ class Person {
 		
 		Person erg = new Person();
 		
-		if (a.Geschlecht == false) {
+		if (a.Geschlecht == false) {			//a soll immer der Mann, b immer die Frau sein
 			Person h;
 			h = a;
 			a = b;
@@ -153,12 +158,12 @@ class Person {
 	void printPerson() {
 			
 		String TAB = "\u0009";
-		if (this.Augenfarbe.length() <= 5) TAB = "\u0009\u0009";
+		if (AugenfarbeKodierung[this.Augenfarbe].length() <= 5) TAB = "\u0009\u0009";
 		
 		if (this.Geschlecht) {		//mann
-			Out.println("Mann, " + this.Größe + "cm, Augenfarbe: " + this.Augenfarbe + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation);
+			Out.println("Mann, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation);
 		} else {		//frau
-			Out.println("Frau, " + this.Größe + "cm, Augenfarbe: " + this.Augenfarbe + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation);
+			Out.println("Frau, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation);
 		}
 		
 	}	//printPerson ends
