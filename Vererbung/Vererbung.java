@@ -1,5 +1,5 @@
 package Vererbung;
-//Stephan ist ein Mongo
+//Eike ist ein Mongo
 import ssj.Out;
 
 //import ssj.*;
