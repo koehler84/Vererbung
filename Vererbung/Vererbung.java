@@ -1,5 +1,5 @@
 package Vererbung;
-
+//Stephan ist ein Mongo
 import ssj.Out;
 
 //import ssj.*;
@@ -24,7 +24,7 @@ public class Vererbung {
 		Person a2 = a;
 		Person b2 = b;
 		
-		for (int i = 0; i < 10; i++) {
+		for (int i = 1; i < 10; i++) {
 			
 			Gen2_1.printPerson();
 			Gen2_2.printPerson();
