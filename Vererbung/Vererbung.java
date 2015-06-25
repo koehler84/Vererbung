@@ -1,8 +1,6 @@
 package Vererbung;
 
-import ssj.Out;
-
-//import ssj.*;
+import ssj.*;
 
 public class Vererbung {
 
@@ -12,8 +10,8 @@ public class Vererbung {
 		Person a = new Person();			//frau
 		Person b = new Person("mann");		//mann
 		
-		a.printPerson();
-		b.printPerson();
+		Out.println(a);
+		Out.println(b);
 		Out.println();
 		
 		Person Gen2_1 = Person.Fortpflanzen(a, b);

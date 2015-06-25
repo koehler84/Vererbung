@@ -1,6 +1,4 @@
 package Vererbung;
-//test von Stephan
-import ssj.Out;
 
 class Person {
 	
@@ -206,7 +204,17 @@ Person (String geschlecht, int Größe, String Farbstring) {
 	
 	
 	//allgemeine Funktionen
-	
+	public String toString() {
+		String TAB = "\u0009";
+		if (AugenfarbeKodierung[this.Augenfarbe].length() <= 5) TAB = "\u0009\u0009";
+		
+		if (this.Geschlecht) {		//mann
+			return "Mann, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation;
+		} else {		//frau
+			return "Frau, " + this.Größe + "cm, Augenfarbe: " + AugenfarbeKodierung[this.Augenfarbe] + "," + TAB + "PLATZHALTER HAARFARBE, Generation: " + this.Generation;
+		}
+	}
+	/*
 	void printPerson() {
 			
 		String TAB = "\u0009";
@@ -219,5 +227,5 @@ Person (String geschlecht, int Größe, String Farbstring) {
 		}
 		
 	}	//printPerson ends
-	
+	*/
 }	//class Person ends
