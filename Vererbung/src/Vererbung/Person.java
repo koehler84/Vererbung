@@ -29,14 +29,14 @@ class Person {
 		
 		AnzahlPersonen++;
 		
-		if (geschlecht.equals("mann".toLowerCase())) {
+		if (geschlecht.toLowerCase().equals("mann")) {
 			this.Geschlecht = true;
 			this.Größe = 180;
 			this.AugenGene = AugenGenRandom();
 			this.Augenfarbe = AugenFarbeRechnerByte(AugenGene);
 			this.Haarfarbe = 16445630;
 			this.Generation = 1;
-		} else if (geschlecht.equals("frau".toLowerCase())) {
+		} else if (geschlecht.toLowerCase().equals("frau")) {
 			this.Geschlecht = false;
 			this.Größe = 165;
 			this.AugenGene = AugenGenRandom();
@@ -73,7 +73,7 @@ class Person {
 		
 	}	
 	
-Person (String geschlecht, int Größe, String Farbstring) {
+	Person (String geschlecht, int Größe, String Farbstring) {
 		
 		AnzahlPersonen++;
 		this.Haarfarbe = Integer.parseInt(Farbstring.toUpperCase(), 16);	//haarfarbe als rrggbb hexzahl umwandeln in int
@@ -177,6 +177,9 @@ Person (String geschlecht, int Größe, String Farbstring) {
 			} else {
 				erg.Größe = a.Größe+(int)(Math.abs(a.Größe-b.Größe)*random);
 			}
+			
+			random = Math.random()-0.35;				//35% dass Kind kleiner wird, 65% dass Kind größer wird als sonst
+			erg.Größe += 4*erg.Generation*random;		//Zunahme von max ?cm pro Generation, außerdem Zufall eingebaut
 						
 			//Augenfarbe ; Gen[0] von A und Gen[1] von B werden vererbt 
 			random = Math.random();				//neue Zufallszahl um Unabhängigkeit zu anderen Merkmalen zu erreichen
